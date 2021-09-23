@@ -9,11 +9,11 @@ git clone https://github.com/miptleha/net_benchmark.git
 Open both solution (Benchmark.sln, BenchmarkCore.sln) in Visual Studio and build
 
 To test .NET 4 Framework dll, go to `Test\bin\Debug\` and run `Benchmark.exe Test.dll` to see results:
-`
+```
 Benchmarking type Class1
   SortQuick            00:00:00.0049881
   SortLong             00:00:00.3059417
-`
+```
 
 To test .NET 5 Core dll, go to ```TestCore\bin\Debug\net5.0\``` and run ```BenchmarkCore.exe TestCore.dll``` to obtain results:
 ```
