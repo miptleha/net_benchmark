@@ -1,4 +1,4 @@
-The purpose of this application is to measure the performance of an arbitrary function in dll
+The purpose of this application is to measure the performance of an arbitrary static function in dll
 
 ## Sample
 Download source code
