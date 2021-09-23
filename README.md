@@ -15,7 +15,7 @@ Benchmarking type Class1
   SortLong             00:00:00.3059417
 ```
 
-To test .NET 5 Core dll, go to ```TestCore\bin\Debug\net5.0\``` and run ```BenchmarkCore.exe TestCore.dll``` to obtain results:
+To test .NET 5 Core dll, go to `TestCore\bin\Debug\net5.0\` and run `BenchmarkCore.exe TestCore.dll` to obtain results:
 ```
 Benchmarking type Class1
   SortQuick            00:00:00.0051001
