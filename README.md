@@ -24,5 +24,16 @@ Benchmarking type Class1
 
 As we see, classic .NET has quicker sort method, but user code works slower in compare to .NET Core.
 
+## How it works
+Benchmark is simple console application that loads provided dll.  
+In the library, the method to be measured is marked with the `[Benchmark]` attribute:
+```
+[Benchmark]
+public static void SortLong()
+{
+  BubbleSort(_arr2);
+}
+```
+
 ## Copyright
 Thanks to Jon Skeet, idea and code was taken from his [site](https://jonskeet.uk/csharp/benchmark.html)
