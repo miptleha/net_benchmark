@@ -1,2 +1,1 @@
-# net_benchmark
-Benchmark for .NET Core and .NET Framework dlls
+The purpose of this application is to measure the performance of an arbitrary function in dll.
