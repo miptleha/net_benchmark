@@ -33,10 +33,13 @@ public class BenchmarkAttribute : Attribute
 {
 }
 
-[Benchmark]
-public static void SortLong()
+public class Class1
 {
-  BubbleSort(_arr2);
+  [Benchmark]
+  public static void SortLong()
+  {
+    BubbleSort(_arr2);
+  }
 }
 ```
 
