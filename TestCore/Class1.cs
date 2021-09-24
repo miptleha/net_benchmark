@@ -18,6 +18,10 @@ namespace Test
         static List<int> _arr1;
         static List<int> _arr2;
 
+        public class BenchmarkAttribute : Attribute
+        {
+        }
+
 
         [Benchmark]
         public static void SortQuick()

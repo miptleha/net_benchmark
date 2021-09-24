@@ -24,16 +24,7 @@
 using System;
 using System.Reflection;
 using System.Collections;
-
-/// <summary>
-/// The attribute to use to mark methods as being
-/// the targets of benchmarking.
-/// </summary>
-
-[AttributeUsage(AttributeTargets.Method)]
-public class BenchmarkAttribute : Attribute
-{
-}
+using System.Diagnostics;
 
 /// <summary>
 /// Very simple benchmarking framework. Looks for all types
@@ -101,10 +92,13 @@ public class Benchmark
                         continue;
                     }
 
-                    if (method.GetCustomAttributes
-                        (typeof(BenchmarkAttribute), false).Length != 0)
+                    foreach (Attribute attr in method.GetCustomAttributes(false))
                     {
-                        benchmarkMethods.Add(method);
+                        if (attr.GetType().Name == "BenchmarkAttribute")
+                        {
+                            benchmarkMethods.Add(method);
+                            break;
+                        }
                     }
                 }
 
@@ -160,9 +154,9 @@ public class Benchmark
                             GC.Collect();
 
                             // Now run the test itself
-                            DateTime start = DateTime.Now;
+                            var sw = Stopwatch.StartNew();
                             method.Invoke(null, null);
-                            DateTime end = DateTime.Now;
+                            sw.Stop();
 
                             // Check the results (if appropriate)
                             // Note that this doesn't affect the timing
@@ -173,7 +167,7 @@ public class Benchmark
 
                             // If everything's worked, report the time taken, 
                             // nicely lined up (assuming no very long method names!)
-                            Console.WriteLine("  {0,-20} {1}", method.Name, end - start);
+                            Console.WriteLine("  {0,-20} {1}", method.Name, sw.Elapsed);
                         }
                         catch (TargetInvocationException e)
                         {
