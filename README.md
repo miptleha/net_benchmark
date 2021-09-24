@@ -29,6 +29,10 @@ SortLong quicker because array in it has less elements.
 Benchmark is simple console application that loads provided dll.  
 In the library, the method to be measured is marked with the `[Benchmark]` attribute:
 ```
+public class BenchmarkAttribute : Attribute
+{
+}
+
 [Benchmark]
 public static void SortLong()
 {
