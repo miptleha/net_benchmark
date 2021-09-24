@@ -33,7 +33,7 @@ public class BenchmarkAttribute : Attribute
 {
 }
 
-public class Class1
+public partial class Class1
 {
   [Benchmark]
   public static void SortLong()
